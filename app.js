@@ -52,7 +52,18 @@
     /* ------------------------------------------------------------------
        INIT
     ------------------------------------------------------------------ */
-    data = GALLERY_DATA.slice();
+    var firstPhoto = GALLERY_DATA.slice(0, 1);
+    var restData = GALLERY_DATA.slice(1);
+
+    var fwPhotos = restData.filter(function(it) {
+        return it.path.indexOf("PFW") !== -1 || it.path.indexOf("FW JOUR") !== -1;
+    });
+    var otherPhotos = restData.filter(function(it) {
+        return it.path.indexOf("PFW") === -1 && it.path.indexOf("FW JOUR") === -1;
+    });
+    
+    var REORDERED_DATA = firstPhoto.concat(fwPhotos, otherPhotos);
+    data = REORDERED_DATA.slice();
 
     enterBtn.addEventListener("click", function () {
         viewHero.classList.remove("is-active");
@@ -193,7 +204,7 @@
 
     function applyFilters() {
         if (category === "all") {
-            data = GALLERY_DATA.slice();
+            data = REORDERED_DATA.slice();
         } else {
             data = GALLERY_DATA.filter(function (it) { return it.category === category; });
             if (category === "ARTISTES" && subcategory !== "all") {
