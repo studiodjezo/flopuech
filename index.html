@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Florian Puech — Photographe</title>
+    <meta name="description" content="Florian Puech, photographe. Mode, Plateaux, Live. L'image arrachée au réel.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"><span class="cursor-label"></span></div>
+
+    <!-- ===== HERO (Landing) ===== -->
+    <div class="view view--hero is-active" id="viewHero">
+        <div class="grain" aria-hidden="true"></div>
+
+        <div class="hero">
+            <div class="hero-inner">
+                <p class="hero-name">FLORIAN PUECH</p>
+                <h1 class="hero-title">MODE <span class="sep">/</span> PLATEAUX <span class="sep">/</span> LIVE</h1>
+                <blockquote class="hero-manifesto">
+                    L'image ne se fabrique pas, elle s'arrache au réel.<br>
+                    Sans filtre. Sur pellicule.
+                </blockquote>
+                <button class="hero-cta" id="enterBtn">ENTRER DANS L'ARCHIVE <span class="arrow">→</span></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <div class="view view--portfolio" id="viewPortfolio">
+
+        <!-- Fixed transparent header -->
+        <header class="nav" id="nav">
+            <a class="nav-logo" href="#" id="homeBtn">FLORIAN PUECH</a>
+            <div class="nav-right">
+                <span class="nav-counter" id="counter"></span>
+                <button class="nav-menu-btn" id="menuBtn" aria-label="Menu">
+                    <span></span><span></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Overlay menu -->
+        <div class="menu-overlay" id="menuOverlay">
+            <nav class="menu-inner">
+                <div class="menu-section">
+                    <p class="menu-label">CATÉGORIES</p>
+                    <ul class="menu-list" id="menuCategories">
+                        <li><button class="menu-link active" data-filter="all">TOUT</button></li>
+                        <li><button class="menu-link" data-filter="ULTRAS">ULTRAS</button></li>
+                        <li><button class="menu-link" data-filter="PORTRAITS">PORTRAITS</button></li>
+                        <li><button class="menu-link" data-filter="TOURNAGES">TOURNAGES</button></li>
+                        <li><button class="menu-link" data-filter="REPORTAGE">REPORTAGE</button></li>
+                        <li><button class="menu-link" data-filter="EVENEMENTIEL">ÉVÉNEMENTIEL</button></li>
+                        <li><button class="menu-link" data-filter="ARTISTES">ARTISTES</button></li>
+                    </ul>
+                </div>
+                <div class="menu-section" id="menuArtistSection">
+                    <p class="menu-label">ARTISTES</p>
+                    <ul class="menu-list" id="menuArtists">
+                        <li><button class="menu-link-sub active" data-sub="all">TOUS</button></li>
+                        <li><button class="menu-link-sub" data-sub="ALIEN">ALIEN</button></li>
+                        <li><button class="menu-link-sub" data-sub="ANAÏS MVA">ANAÏS MVA</button></li>
+                        <li><button class="menu-link-sub" data-sub="BRAVO MAMBO">BRAVO MAMBO</button></li>
+                        <li><button class="menu-link-sub" data-sub="FANNY RUWET">FANNY RUWET</button></li>
+                        <li><button class="menu-link-sub" data-sub="NISKA">NISKA</button></li>
+                        <li><button class="menu-link-sub" data-sub="STYLETO">STYLETO</button></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <!-- Photo feed (full-bleed vertical scroll) -->
+        <main class="feed" id="feed"></main>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator" id="scrollIndicator">
+            <span class="scroll-text">SCROLL</span>
+            <div class="scroll-line"></div>
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty" id="empty">
+            <p>AUCUN CLICHÉ DANS CETTE CATÉGORIE.</p>
+        </div>
+
+        <footer class="foot">
+            <span>© 2026 FLORIAN PUECH</span>
+            <span>STUDIO DJEZO</span>
+        </footer>
+    </div>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lb" id="lb" role="dialog" aria-modal="true">
+        <div class="lb-bg" id="lbBg"></div>
+        <div class="lb-flash" id="lbFlash"></div>
+        <button class="lb-close" id="lbClose" aria-label="Fermer">×</button>
+        <button class="lb-arr lb-arr--prev" id="lbPrev" aria-label="Précédent">‹</button>
+        <button class="lb-arr lb-arr--next" id="lbNext" aria-label="Suivant">›</button>
+        <div class="lb-body">
+            <img class="lb-img" id="lbImg" src="" alt="">
+            <div class="lb-meta" id="lbMeta">
+                <span class="lb-frame" id="lbFrame"></span>
+                <span class="lb-cat" id="lbCat"></span>
+            </div>
+        </div>
+    </div>
+
+    <script src="gallery_data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
